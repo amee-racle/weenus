@@ -15,7 +15,7 @@ function draw() {
   }
   // constant downward speed
   // (i.e., gravity)
-  spr.addSpeed(0.25, 90);
+  spr.addSpeed(0.35, 90);
   drawSprites();
 }
 function mousePressed() {
