@@ -11,5 +11,5 @@ function draw() {
 }
 
 function testu() {
-    alert("weenus");
+    alert("this will start the first level, when it is finished :)");
 }
