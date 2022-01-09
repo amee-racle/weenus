@@ -6,7 +6,7 @@ function setup() {
     spr.shapeColor = color(255);
 }
 function draw() {
-    background(50);
+    background(32);
     spr.position.x = mouseX;
     spr.position.y = mouseY;
     drawSprites();
