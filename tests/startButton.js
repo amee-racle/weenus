@@ -11,5 +11,5 @@ function draw() {
 }
 
 function testu() {
-    alert("this will start the first level, when it is finished :)");
+    alert("this will start the first level, when it is finished :) this play button is a placeholder");
 }
