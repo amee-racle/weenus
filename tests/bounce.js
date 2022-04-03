@@ -1,6 +1,6 @@
 let spr;
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600);
   spr = createSprite(width/2, height/2,
     40, 40);
   spr.shapeColor = color(255);
