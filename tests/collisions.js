@@ -7,7 +7,7 @@ function setup() {
     spr.shapeColor = color(255);
     obstacles = new Group();
 
-    for(var i=0; i<4; i++)
+    for(var i=0; i<4; i++) //to be commented (Idrk what this line does)
   {
     var box = createSprite(200, 200);
     obstacles.add(box);
