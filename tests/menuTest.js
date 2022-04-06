@@ -16,7 +16,7 @@ function draw() {
     drawSprites()
 }
 
-function mouseDragged() { // function to allow position 
-    spr.position.x = mouseX; // of sprite to follow mouse
-    spr.position.y = mouseY;  // when mouse is dragged--------------------------------------------------------------------
+function mouseDragged() { 
+    spr.position.x = mouseX; 
+    spr.position.y = mouseY;  
 }

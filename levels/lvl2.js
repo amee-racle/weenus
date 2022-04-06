@@ -6,8 +6,12 @@ let obstacles;
 let beingDragged = false;
 let doorUnlocked = false;
 
+function sleep(ms) { // sleep function in ms
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function setup() { 
-    createCanvas(600, 600);
+    createCanvas(600, 600).parent("game")
     touchpad = createSprite(580, 530, 40, 40); // acts as a switch, when objects against it door is unlocked
     touchpad.shapeColor = color(188, 211, 206);
 
@@ -40,19 +44,23 @@ function setup() {
         beingDragged = false;
     }
 
-    doorLight.onMousePressed = function() {
+    doorLight.onMousePressed = async function() {
         if(doorUnlocked === true) {
-            alert("Level complete!");
+            document.getElementById("solved").innerHTML = "Level 2 complete! Proceeding to level 3.";
+            await sleep(2000);
+            // redirect to level 3
+            location.href = "lvl3.html";
         } else {
-            alert("Solve the puzzle before trying to open the door.");
+            document.getElementById("solved").innerHTML = "You need to solve the puzzle before proceeding!";
+            await sleep(2000);
+            document.getElementById("solved").innerHTML = "&nbsp";
         }
-
     }
 }
 
 function draw() {
     // update text to show mouse position
-    document.getElementById("mousepos").innerHTML = `X: ${Math.round(mouseX)}, Y: ${Math.round(mouseY)}`;
+    // document.getElementById("mousepos").innerHTML = `X: ${Math.round(mouseX)}, Y: ${Math.round(mouseY)}`;
     background(32);
     if(spr.overlap(touchpad)) {
         // when sprites are touching, change colour of the dragged one
@@ -63,6 +71,7 @@ function draw() {
     } else {
         spr.shapeColor = color(255);
         doorUnlocked = false;
+        doorLight.shapeColor = color(100);
     }
     spr.collide(obstacles);
     drawSprites();
@@ -72,7 +81,7 @@ function draw() {
 function mouseDragged() {
     if(beingDragged) {
         spr.position.x = Math.round(mouseX);
-        spr.position.y = Math.round(mouseY);
+        // spr.position.y = Math.round(mouseY);
 
         // left/top
         if(spr.position.x < 0) spr.position.x = 0;
