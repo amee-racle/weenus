@@ -11,7 +11,7 @@ function sleep(ms) { // sleep function in ms
 }
 
 function setup() { 
-    createCanvas(600, 600).parent("game")
+    createCanvas(600, 600).parent("game");
     touchpad = createSprite(580, 530, 40, 40); // acts as a switch, when objects against it door is unlocked
     touchpad.shapeColor = color(188, 211, 206);
 
@@ -19,16 +19,13 @@ function setup() {
     spr.shapeColor = color(255);
 
     obstacles = new Group();
+    ground1 = createSprite(300, 485, 600, 50); // set position and size of the ground
+    ground1.shapeColor = color(125);
+    obstacles.add(ground1);
 
-    for(var i=0; i<4; i++) {
-        ground1 = createSprite(300, 485, 600, 50); // set position and size of the ground
-        ground1.shapeColor = color(125);
-        obstacles.add(ground1);
-
-        ground2 = createSprite(300, 575, 600, 50); 
-        ground2.shapeColor = color(125);
-        obstacles.add(ground2);
-    }
+    ground2 = createSprite(300, 575, 600, 50); 
+    ground2.shapeColor = color(125);
+    obstacles.add(ground2);
     
     door = createSprite(300, 100, 150, 200); // set position, size, colour of door at far end 
     door.shapeColor = 125;
@@ -59,8 +56,6 @@ function setup() {
 }
 
 function draw() {
-    // update text to show mouse position
-    // document.getElementById("mousepos").innerHTML = `X: ${Math.round(mouseX)}, Y: ${Math.round(mouseY)}`;
     background(32);
     if(spr.overlap(touchpad)) {
         // when sprites are touching, change colour of the dragged one
