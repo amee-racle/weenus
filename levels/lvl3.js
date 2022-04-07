@@ -17,7 +17,7 @@ function setup() {
     doorLight = createSprite(390, 90, 20, 20);
     doorLight.shapeColor = color(100);
 
-    sq1 = createSprite(32, 530, 40, 40);
+    sq1 = createSprite(300, 450, 40, 40);
 
     doorLight.onMousePressed = async function() {
         if(doorUnlocked === true) {
